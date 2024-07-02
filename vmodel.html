@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <label for="nama">nama:</label>
+        <input type="text" placeholder="nama" v-model="nama" id="nama">
+        <br>
+        <label for="alamat">alamat</label>
+        <textarea name="alamat" id="alamat" placeholder="alamat" cols="20" rows='10' v-model="alamat"></textarea>
+        <br>
+        <label for="gender">Gender</label>
+        <input type="radio" name="gender" id="gender" value="pria" v-model="gender">pria
+        <input type="radio" name="gender" id="gender" value="wanita" v-model="gender">Wnita
+        <br>
+        <h2>Hobbies</h2>
+        <label for="bola">Bola</label>
+        <input type="checkbox" name="bola" id="bola" value="bola" v-model="hobbies">
+        <br>
+        <label for="mancing">mancing</label>
+        <input type="checkbox" name="mancing" id="mancing" value="mancing" v-model="hobbies">
+        
+        <br>
+        <label for="ngudud">ngudud</label>
+        <input type="checkbox" name="ngudud" id="ngudud" value="ngudud" v-model="hobbies">
+        <br>
+        <div class="">
+            <h1>Result</h1>
+            <br>
+            <div class="">
+                <h1>nama : {{nama}}</h1>
+            </div>
+            <br>
+            <div class="">
+                <h1>Alamat : {{alamat}}</h1>
+            </div>
+            <br>
+            <div class="">
+                <h1>Gender: {{gender}}</h1>
+            </div>
+            <br>
+            <div class="">
+                <ul v-for="hobi in hobbies">
+                    <li>{{hobi}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<script type="module">
+  import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+  createApp({
+   data() {
+    return {
+       nama: "",
+       alamat: "",
+     gender: "",
+     hobbies: []
+    }
+   },
+  }).mount('#app')
+</script>
+</body>
+</html>
