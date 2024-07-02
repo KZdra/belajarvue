@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-for="angka in 10">
+            {{angka}}
+        </div>
+
+        <table border="1" >
+            <tr>
+                <th>no</th>
+                <th>nama</th>
+                <th>action</th>
+            </tr>
+            <tr v-for="siswa,index in siswas">
+                <td>{{index}}</td>
+                <td >{{siswa}}</td>
+                <td><button @click="hapus(index)">Hapus</button></td>
+            </tr>
+            
+        </table>
+        <br>
+        <table border="1" >
+            <tr>
+                <th>no</th>
+                <th>nama</th>
+                <th>posisi</th>
+                <th>action</th>
+            </tr>
+            <tr v-for="fp,index in footballplayers">
+                <td>{{index}}</td>
+                <td>{{fp.name}}</td>
+                <td>{{fp.position}}</td>
+                <td><button @click="hapusfp(index)">Hapus</button></td>
+            </tr>
+            
+        </table>
+    </div>
+
+<script type="module">
+  import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+  createApp({
+    data() {
+        return {
+            siswas : ["Anita", "Budi", "Citra", "Dewi", "Eko"],
+            footballplayers : [
+    { name: 'Player1', position: 'Forward' },
+    { name: 'Player2', position: 'Midfielder' },
+    { name: 'Player3', position: 'Defender' },
+    { name: 'Player4', position: 'Goalkeeper' }
+]
+        }
+    },
+    methods: {
+        hapus(index){
+            this.siswas.splice(index,1) 
+        },
+        hapusfp(index){
+            this.footballplayers.splice(index,1) 
+        }
+    },
+  }).mount('#app')
+</script>
+</body>
+</html>
